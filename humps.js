@@ -27,11 +27,9 @@
     }
     else {
       output = {};
-      for(var key in obj) {
-        if(Object.prototype.hasOwnProperty.call(obj, key)) {
-          output[convert(key, options)] = _processKeys(convert, obj[key], options);
-        }
-      }
+      Object.keys(obj).forEach((key) => {
+        output[convert(key, options)] = _processKeys(convert, obj[key], options);
+      });
     }
     return output;
   };
